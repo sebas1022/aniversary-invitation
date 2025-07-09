@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 Aniversario Especial - Juego de Amor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Pantalla de inicio -->
+    <div id="startScreen" class="screen active">
+        <div class="container">
+            <h1 class="title">🎮 Juego de Aniversario</h1>
+            <p class="subtitle">¡Ayuda a la princesita a llegar al final para descubrir una sorpresa especial!</p>
+            <button id="startButton" class="btn-primary" disabled>🎯 Comenzar Aventura</button>
+            <div id="loadingMsg" style="margin-top:1rem;color:#ff6b9d;font-weight:600;">Cargando princesa...</div>
+            <div class="instructions">
+                <h3>🎮 Cómo jugar:</h3>
+                <p><strong>Teclado:</strong> Presiona ESPACIO para saltar</p>
+                <p><strong>Móvil:</strong> Toca la pantalla para saltar</p>
+                <p><strong>💫 Doble salto:</strong> Presiona ESPACIO dos veces para saltar más alto</p>
+                <p><strong>❤️ Vidas:</strong> Tienes 3 vidas - si pierdes una, continúas desde el mismo punto</p>
+                <p><strong>⏰ Tiempo:</strong> 2 minutos - ¡Llega al final antes de que se acabe!</p>
+                <p><strong>🚀 Velocidad:</strong> Aumenta cada 20 segundos</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pantalla del juego -->
+    <div id="gameScreen" class="screen">
+        <div class="game-header">
+            <div class="score">Tiempo: <span id="timer">60</span>s</div>
+            <div class="lives">Vidas: <span id="livesDisplay">❤️❤️❤️</span></div>
+            <button id="muteButton" class="btn-mute">🔊</button>
+        </div>
+        
+        <canvas id="gameCanvas" width="800" height="400"></canvas>
+        
+        <div class="game-controls">
+            <button id="jumpButton" class="btn-jump">🦘 SALTAR</button>
+        </div>
+        <!--button id="forceWinButton" class="btn-primary" style="position:absolute;top:20px;right:20px;z-index:10;opacity:0.7;">🪄 Ver Carta (Debug)</button-->
+    </div>
+
+    <!-- Pantalla de la carta -->
+    <div id="letterScreen" class="screen">
+        <div class="letter-container">
+            <div class="envelope">
+                <div class="envelope-flap">
+                    <span class="flap-invite">Haz clic aquí para abrir tu carta 💌</span>
+                </div>
+                <div class="envelope-body">
+                    <div class="letter">
+                        <div class="letter-content">
+                            <h2>💕 Mi Amor</h2>
+                            <p>En este día tan especial, quiero recordarte lo afortunado que soy de tenerte en mi vida. Cada momento contigo es un regalo que atesoro con todo mi corazón.</p>
+                            
+                            <p>Tu sonrisa ilumina mis días, tu amor me hace más fuerte, y tu presencia en mi vida es la mayor bendición que he recibido.</p>
+                            
+                            <p>Gracias por ser mi compañera, mi confidente, mi mejor amiga y mi amor verdadero. Contigo, cada día es una nueva aventura llena de amor y felicidad.</p>
+                            
+                            <p>Te amo más de lo que las palabras pueden expresar, y estoy emocionado por todos los años maravillosos que tenemos por delante juntos.</p>
+                            
+                            <div class="special-message">
+                                <p><strong>Pasa por tu correo, hay una sorpresa esperándote... ❤️</strong></p>
+                            </div>
+                            
+                            <p class="signature">Con todo mi amor,<br>Tu compañero de vida 💖</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <button id="restartButton" class="btn-primary">🎮 Jugar de Nuevo</button>
+    </div>
+
+    <!-- Audio -->
+    <audio id="bgMusic" loop>
+        <source src="data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4LjIwLjEwMAAAAAAAAAAAAAAA//tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAAFbgBtbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1t//////////////////////////////////////////////////////////////////8AAAAATGF2YzU4LjM1AAAAAAAAAAAAAAAAJAYAAAAAAAAABW4A" type="audio/mpeg">
+    </audio>
+    
+    <audio id="jumpSound">
+        <source src="data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4LjIwLjEwMAAAAAAAAAAAAAAA//tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAAFbgBtbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1t//////////////////////////////////////////////////////////////////8AAAAATGF2YzU4LjM1AAAAAAAAAAAAAAAAJAYAAAAAAAAABW4A" type="audio/mpeg">
+    </audio>
+
+    <script src="game.js"></script>
+</body>
+</html> 
